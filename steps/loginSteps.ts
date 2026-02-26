@@ -22,3 +22,9 @@ When ("I click the 'Login' button", async () => {
 Then ("I should be redirected to the product catalog page", async () => {
     await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
 });
+
+Then ("I should see the product listings", async () => {
+    const productListings = loginPage.page.locator('.inventory_item');
+    const count = await productListings.count();
+    expect(count).toBeGreaterThan(0);
+}); 

@@ -5,3 +5,4 @@ Feature: User Login to SauceDemo
         When I enter valid credentials in the respective fields
         When I click the 'Login' button 
         Then I should be redirected to the product catalog page
+        Then I should see the product listings
