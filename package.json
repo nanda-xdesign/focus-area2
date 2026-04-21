@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/nanda-xdesign/focus-area2#readme",
   "devDependencies": {
-    "@cucumber/cucumber": "^12.7.0",
+    "@cucumber/cucumber": "^12.8.1",
     "@playwright/test": "^1.58.2",
     "@types/node": "^25.3.1",
     "ts-node": "^10.9.2"
