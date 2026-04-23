@@ -12,8 +12,14 @@ export class InventoryPage {
     }
 
     async getCartCount(): Promise<number> {
-        const countText = await this.cartCountLocator.textContent();
-        return countText ? parseInt(countText) : 0;
+        const count = await this.cartCountLocator.count();
+
+        if (count === 0) {
+            return 0;
+        }
+
+        const text = await this.cartCountLocator.textContent();
+        return Number(text?.trim());
     }
 
     async addFirstItemToCart(): Promise<void> {

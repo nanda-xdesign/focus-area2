@@ -6,6 +6,7 @@ import {InventoryPage} from '../page-objects/iventory-page.pom';
 import { CheckoutPage } from '../page-objects/checkout-page.pom';
 
 let loginPage: LoginPage;
+let initialCartCount: number;
 
 
 // AC1
@@ -15,6 +16,8 @@ Given ("I am on the product catalog page", async () => {
     await loginPage.usernameLocator.fill('standard_user');
     await loginPage.passwordLocator.fill('secret_sauce');
     await loginPage.loginButtonLocator.click();
+    const inventoryPage = new InventoryPage(page);
+    initialCartCount = await inventoryPage.getCartCount();
 });
 
 When ("I click the 'Add to cart' button for a chosen item", async () => {
@@ -25,7 +28,7 @@ When ("I click the 'Add to cart' button for a chosen item", async () => {
 Then ("the item should be added to my shopping cart", async () => {
     const inventoryPage = new InventoryPage(page);
     const newCount = await inventoryPage.getCartCount();        
-    expect(newCount).toBeGreaterThan(0);
+    expect(newCount).toBe(initialCartCount + 1);
 });
 
 
