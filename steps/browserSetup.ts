@@ -1,5 +1,5 @@
 import {Before, After} from '@cucumber/cucumber';
-import { chromium, expect, Page, Browser } from '@playwright/test';
+import { chromium, Page, Browser } from '@playwright/test';
 
 let browser: Browser;
 let page: Page;
